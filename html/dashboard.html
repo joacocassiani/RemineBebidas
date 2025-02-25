@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inicio</title>
+  <link rel="stylesheet" href="../css/dashboard.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="../imagenes/Screenshot_5.png">
+  
+</head>
+<body>
+  <div class="dashboard-container">
+    <div class="hamburger-menu" onclick="toggleSidebar()">
+      ☰
+    </div>
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <div class="logo">
+        <img src="../imagenes/Screenshot_1.png" alt="Logo">
+      </div>
+      <nav>
+        <ul>
+          <li><a href="dashboard.html"><i class="fas fa-home"></i> Inicio</a></li>
+          <li><a href="ventas.html"><i class="fas fa-wine-bottle"></i> Ventas</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <main class="main-content">
+      <header>
+        <h1>📊 Resumen de Ventas</h1>
+      </header>
+      <!-- 🔹 Sección de Indicadores Claves -->
+      <div class="key-metrics">
+          <div class="key-metric">
+            <h3>Total de Ventas</h3>
+            <p id="totalVentas">0</p>
+          </div>
+          <div class="key-metric">
+            <h3>Total Recaudado</h3>
+            <p id="totalRecaudado">$0</p>
+          </div>
+          <div class="key-metric">
+            <h3>Ventas Pendientes</h3>
+            <p id="ventasPendientes">0</p>
+          </div>
+
+          <div class="key-metric">
+            <h3>Producto Más Vendido</h3>
+            <p id="productoMasVendido">N/A</p>
+          </div>
+          <div class="key-metric">
+            <h3>Clientes con más compras</h3>
+            <p id="clienteTop">N/A</p>
+          </div>
+          <div class="key-metric">
+            <h3>Ganancias del Mes</h3>
+            <p id="gananciaMes">$0</p>
+          </div>
+      </div>
+    
+      <!-- 🔹 Últimas Ventas -->
+      <section class="ultimas-ventas">
+        <h3>🛍️ Últimas Ventas</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Fecha</th>
+              <th>Cliente</th>
+              <th>Producto</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody id="ultimasVentasBody">
+            <!-- Se llenará dinámicamente -->
+          </tbody>
+        </table>
+      </section>
+    </main>
+
+  </div>
+  <script type="module" src="../js/dashboard.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js"></script>
+  <script type="module" src="../js/firebase-config.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    function toggleSidebar() {
+      const sidebar = document.querySelector('.sidebar'); // Seleccionar la barra lateral
+      sidebar.classList.toggle('active'); // Alternar la clase "active" para mostrar u ocultar
+    }
+  </script>
+</body>
+</html>

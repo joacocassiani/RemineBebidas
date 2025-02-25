@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nueva Venta</title>
+  <link rel="stylesheet" href="../css/dashboard.css">
+  <link rel="icon" type="image/x-icon" href="../imagenes/Screenshot_1.png">
+</head>
+<body>
+  <div class="dashboard-container">
+    <main class="main-content">
+      <header class="new-sale-header">
+        <h1>Registrar Nueva Venta</h1>
+      </header>
+
+      <form id="newSaleForm" class="new-sale-form">
+        <!-- Cliente -->
+        <div class="form-group">
+          <label for="clientName">Nombre del Cliente</label>
+          <input type="text" id="clientName" placeholder="Juan Pérez" required>
+        </div>
+        <div class="form-group">
+          <label for="saleDate">Fecha de Venta</label>
+          <input type="date" id="saleDate" required>
+        </div>
+
+        <!-- Productos (se agregarán dinámicamente aquí) -->
+        <h3>Productos</h3>
+        <div id="productsContainer"></div>
+
+        <!-- Botón para agregar productos -->
+        <button type="button" id="addProductButton" class="new-sale-button">➕ Agregar Producto</button>
+
+        <!-- Botón para guardar la venta -->
+        <button type="submit" class="new-sale-button">Guardar Venta</button>
+      </form>
+
+      <div class="new-sale-footer">
+        <button onclick="location.href='../html/dashboard.html'" class="new-sale-button">Volver a inicio</button>
+      </div>
+    </main>
+  </div>
+
+  <!-- Scripts -->
+  <script type="module" src="../js/nueva-venta.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js"></script>
+  <script type="module" src="../js/firebase-config.js"></script>
+</body>
+</html>

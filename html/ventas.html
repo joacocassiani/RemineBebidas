@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ventas</title>
+  <link rel="stylesheet" href="../css/ventas.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="../imagenes/Screenshot_1.png">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+</head>
+<body>
+  <div class="dashboard-container">
+    <div class="hamburger-menu" onclick="toggleSidebar()">
+      ☰
+    </div>
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <div class="logo">
+        <img src="../imagenes/Screenshot_1.png" alt="Logo">
+      </div>
+      <nav>
+        <ul>
+          <li><a href="dashboard.html"><i class="fas fa-home"></i> Inicio</a></li>
+          <li><a href="ventas.html"><i class="fas fa-wine-bottle"></i> Ventas</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- Ventas Section -->
+    <main class="main-content">
+      <header>
+        <h1>Ventas</h1>
+      </header>
+      <!-- Incluye aquí la sección de ventas -->
+      <section class="ventas">
+        <div class="key-metrics">
+          <div class="key-metric">
+            <h3>Ventas del dia</h3>
+            <p id="ventasHoy">0</p>
+          </div>
+          <div class="key-metric">
+            <h3>Ventas de la semana</h3>
+            <p id="ventasSemana">0</p>
+          </div>
+          <div class="key-metric">
+            <h3>Monto total Hoy</h3>
+            <p id="totalRecaudadoHoy">0</p>
+          </div>
+        </div>
+        <div class="ventas-actions">
+          <button class="new-sale-button" onclick="location.href='nueva-venta.html'">Nueva Venta</button>
+          
+          <input type="text" id="searchInput" class="ventas-search" placeholder="Buscar...">
+        </div>
+        <div class="table-container">
+          <table class="ventas-table">
+            <thead>
+              <tr>
+                <th>Fecha</th>
+                <th>Cliente</th>
+                <th>Producto(s)</th>
+                <th>Venta</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="salesTableBody">
+
+            </tbody>
+          </table>
+        </div>
+        <div id="responsiveCardContainer"></div> <!-- Contenedor de tarjetas -->
+        <div id="editForm" style="display: none; border: 1px solid #ccc; padding: 20px; margin-top: 20px;">
+          <h3>Editar Venta</h3>
+          <label for="edit-clientName">Nombre del Cliente:</label>
+          <input type="text" id="edit-clientName"><br><br>
+          <label for="edit-product">Producto:</label>
+          <input type="text" id="edit-product"><br><br>
+          <label for="edit-total">Total:</label>
+          <input type="number" id="edit-total"><br><br>
+
+          <button id="save-edit">Guardar Cambios</button>
+        </div>
+        <div class="ventas-footer">
+          <p>Total ventas hasta hoy: <span id="totalSales"> 0 </span></p>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script type="module" src="../js/ventas.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+  <script type="module" src="../js/firebase-config.js"></script>
+  <script>
+    function toggleSidebar() {
+      const sidebar = document.querySelector('.sidebar'); // Seleccionar la barra lateral
+      sidebar.classList.toggle('active'); // Alternar la clase "active" para mostrar u ocultar
+    }
+  </script>
+</body>
+</html>
