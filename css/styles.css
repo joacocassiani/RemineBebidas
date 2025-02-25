@@ -3,7 +3,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
-  background: linear-gradient(to bottom right, #4a90e2, #50e3c2);
+  background: linear-gradient(to bottom right, #10993e, #15a350);
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -62,7 +62,7 @@ input {
 }
 
 input:focus {
-  border-color: #4a90e2;
+  border-color: #10993e;
 }
 
 .login-button {
@@ -71,7 +71,7 @@ input:focus {
   margin-top: 20px;
   border: none;
   border-radius: 5px;
-  background-color: #4a90e2;
+  background-color: #10993e;
   color: #fff;
   font-size: 16px;
   cursor: pointer;
@@ -79,7 +79,7 @@ input:focus {
 }
 
 .login-button:hover {
-  background-color: #357abd;
+  background-color: #10993e;
 }
 
 .login-footer {
